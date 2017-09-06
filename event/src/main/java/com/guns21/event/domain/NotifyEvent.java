@@ -6,10 +6,10 @@ package com.guns21.event.domain;
  */
 public abstract class NotifyEvent<T> extends BaseEvent<T> {
 
-  public NotifyEvent(T source) {
-    super(source);
-  }
+    public NotifyEvent(T source) {
+        super(source);
+    }
 
-  public NotifyEvent() {
-  }
+    public NotifyEvent() {
+    }
 }

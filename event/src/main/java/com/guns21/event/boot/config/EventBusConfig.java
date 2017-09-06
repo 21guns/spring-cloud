@@ -11,12 +11,12 @@ import org.springframework.context.annotation.Configuration;
 //@EnableAsync
 public class EventBusConfig {
 
-  @Bean
-  public EventBus eventBus() {
-    return new EventBus();
-  }
+    @Bean
+    public EventBus eventBus() {
+        return new EventBus();
+    }
 
-  //异步执行事件配置
+    //异步执行事件配置
 //    @Bean
 //    TaskExecutor taskExecutor() {
 //        return new SimpleAsyncTaskExecutor();

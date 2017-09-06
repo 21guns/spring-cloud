@@ -5,10 +5,10 @@ package com.guns21.event.domain;
  * Created by jliu on 2017/6/5.
  */
 public abstract class AskEvent<T> extends BaseEvent<T> {
-  public AskEvent(T source) {
-    super(source);
-  }
+    public AskEvent(T source) {
+        super(source);
+    }
 
-  public AskEvent() {
-  }
+    public AskEvent() {
+    }
 }

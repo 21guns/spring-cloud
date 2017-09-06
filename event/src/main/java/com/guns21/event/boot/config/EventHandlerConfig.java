@@ -21,27 +21,27 @@ public class EventHandlerConfig {
      * Annotated with @EventHandler
      */
 
-  private String eventHandlerSpelPattern = "headers['eventType']=='%s'";
+    private String eventHandlerSpelPattern = "headers['eventType']=='%s'";
 
-  /**
-   * Override the default {@link StreamListenerAnnotationBeanPostProcessor} to inject value of
-   * 'eventType' attribute into 'condition' expression.
-   *
-   * @return
-   */
-  @Bean(name = STREAM_LISTENER_ANNOTATION_BEAN_POST_PROCESSOR_NAME)
-  public StreamListenerAnnotationBeanPostProcessor streamListenerAnnotationBeanPostProcessor() {
-    return new StreamListenerAnnotationBeanPostProcessor() {
-      @Override
-      protected StreamListener postProcessAnnotation(StreamListener originalAnnotation, Method annotatedMethod) {
-        Map<String, Object> attributes = new HashMap<>(
-            AnnotationUtils.getAnnotationAttributes(originalAnnotation));
-        if (StringUtils.hasText(originalAnnotation.condition())) {
-          String spelExpression = String.format(eventHandlerSpelPattern, originalAnnotation.condition());
-          attributes.put("condition", spelExpression);
-        }
-        return AnnotationUtils.synthesizeAnnotation(attributes, StreamListener.class, annotatedMethod);
-      }
-    };
-  }
+    /**
+     * Override the default {@link StreamListenerAnnotationBeanPostProcessor} to inject value of
+     * 'eventType' attribute into 'condition' expression.
+     *
+     * @return
+     */
+    @Bean(name = STREAM_LISTENER_ANNOTATION_BEAN_POST_PROCESSOR_NAME)
+    public StreamListenerAnnotationBeanPostProcessor streamListenerAnnotationBeanPostProcessor() {
+        return new StreamListenerAnnotationBeanPostProcessor() {
+            @Override
+            protected StreamListener postProcessAnnotation(StreamListener originalAnnotation, Method annotatedMethod) {
+                Map<String, Object> attributes = new HashMap<>(
+                        AnnotationUtils.getAnnotationAttributes(originalAnnotation));
+                if (StringUtils.hasText(originalAnnotation.condition())) {
+                    String spelExpression = String.format(eventHandlerSpelPattern, originalAnnotation.condition());
+                    attributes.put("condition", spelExpression);
+                }
+                return AnnotationUtils.synthesizeAnnotation(attributes, StreamListener.class, annotatedMethod);
+            }
+        };
+    }
 }

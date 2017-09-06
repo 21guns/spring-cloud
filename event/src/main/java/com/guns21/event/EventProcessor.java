@@ -16,43 +16,43 @@ import org.springframework.messaging.support.MessageBuilder;
  */
 @EnableBinding(EventBusClient.class)
 public class EventProcessor implements ApplicationEventPublisherAware {
-  private static final Logger logger = LoggerFactory.getLogger(EventProcessor.class);
+    private static final Logger logger = LoggerFactory.getLogger(EventProcessor.class);
 
-  public static final String EVENT_TYPE = "eventType";
+    public static final String EVENT_TYPE = "eventType";
 
-  @Autowired
-  private BinderAwareChannelResolver binderAwareChannelResolver;
+    @Autowired
+    private BinderAwareChannelResolver binderAwareChannelResolver;
 
-  @Autowired
-  private EventBusClient busClient;
+    @Autowired
+    private EventBusClient busClient;
 
-  private ApplicationEventPublisher applicationEventPublisher;
+    private ApplicationEventPublisher applicationEventPublisher;
 
 
-  /**
-   * 动态创建 destination
-   *
-   * @param message
-   * @param destination
-   * @return
-   */
-  public boolean sendMessage(BaseEvent message, String destination) {
+    /**
+     * 动态创建 destination
+     *
+     * @param message
+     * @param destination
+     * @return
+     */
+    public boolean sendMessage(BaseEvent message, String destination) {
 
-    logger.debug("send message to kafka topic: {}, message: {}", destination, message);
+        logger.debug("send message to kafka topic: {}, message: {}", destination, message);
 
-    MessageChannel messageChannel = binderAwareChannelResolver.resolveDestination(destination);
-    return messageChannel.send(MessageBuilder.withPayload(message)
-        .setHeader(EVENT_TYPE, message.getEventType())
-        .build());
+        MessageChannel messageChannel = binderAwareChannelResolver.resolveDestination(destination);
+        return messageChannel.send(MessageBuilder.withPayload(message)
+                .setHeader(EVENT_TYPE, message.getEventType())
+                .build());
 
-  }
+    }
 
-  public boolean sendMessage(BaseEvent message) {
+    public boolean sendMessage(BaseEvent message) {
 
-    return busClient.eventBusOutput().send(MessageBuilder.withPayload(message)
-        .setHeader(EVENT_TYPE, message.getEventType())
-        .build());
-  }
+        return busClient.eventBusOutput().send(MessageBuilder.withPayload(message)
+                .setHeader(EVENT_TYPE, message.getEventType())
+                .build());
+    }
 
 //    @StreamListener( EventBusClient.INPUT)
 //    public void receiveMessage(Object payload) throws IllegalAccessException {
@@ -60,8 +60,8 @@ public class EventProcessor implements ApplicationEventPublisherAware {
 //        this.applicationEventPublisher.publishEvent(payload);
 //    }
 
-  @Override
-  public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
-    this.applicationEventPublisher = applicationEventPublisher;
-  }
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        this.applicationEventPublisher = applicationEventPublisher;
+    }
 }

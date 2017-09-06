@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.guns21.cloud.limiting.LimitingAutoConfiguration

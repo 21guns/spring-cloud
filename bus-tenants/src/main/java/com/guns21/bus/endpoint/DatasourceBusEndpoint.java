@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @ManagedResource
 public class DatasourceBusEndpoint extends AbstractBusEndpoint {
-  public DatasourceBusEndpoint(ApplicationEventPublisher context, String id, BusEndpoint delegate) {
-    super(context, id, delegate);
-  }
+    public DatasourceBusEndpoint(ApplicationEventPublisher context, String id, BusEndpoint delegate) {
+        super(context, id, delegate);
+    }
 
-  @RequestMapping(
-      value = {"datasource"},
-      method = {RequestMethod.POST}
-  )
-  @ResponseBody
-  @ManagedOperation
-  public void refresh(@RequestParam String dataSource, @RequestParam(value = "destination", required = false) String destination) {
-    this.publish(new AddDataSourceApplicationEvent(this, this.getInstanceId(), destination, dataSource));
-  }
+    @RequestMapping(
+            value = {"datasource"},
+            method = {RequestMethod.POST}
+    )
+    @ResponseBody
+    @ManagedOperation
+    public void refresh(@RequestParam String dataSource, @RequestParam(value = "destination", required = false) String destination) {
+        this.publish(new AddDataSourceApplicationEvent(this, this.getInstanceId(), destination, dataSource));
+    }
 }

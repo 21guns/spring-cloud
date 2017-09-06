@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @RemoteApplicationEventScan(basePackages = {"com.ktjr.bus.event"})
 public class BusConfiguration {
-  @Bean
-  public DatasourceBusEndpoint datasourceBusEndpoint(ApplicationContext context, BusEndpoint busEndpoint) {
-    return new DatasourceBusEndpoint(context, context.getId(), busEndpoint);
-  }
+    @Bean
+    public DatasourceBusEndpoint datasourceBusEndpoint(ApplicationContext context, BusEndpoint busEndpoint) {
+        return new DatasourceBusEndpoint(context, context.getId(), busEndpoint);
+    }
 
 
 }
