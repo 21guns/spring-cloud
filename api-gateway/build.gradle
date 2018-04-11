@@ -2,8 +2,8 @@
 apply from: '/Volumes/data/Develop/workspace/21guns/gradle/spring-boot.gradle'
 
 dependencies {
-    compile 'com.guns21:spring-session:1.0.0-SNAPSHOT'
-    compile 'com.guns21:limiting:1.0.0-SNAPSHOT'
+    compile 'com.guns21:spring-session:1.0.0'
+    compile project(':limiting')
     compile libraries.fastjson
 
     compile 'org.springframework.cloud:spring-cloud-starter-zuul'

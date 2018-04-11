@@ -1,22 +1,18 @@
 package com.guns21.bus.event;
 
-import org.springframework.cloud.bus.event.RemoteApplicationEvent;
+import java.util.EventObject;
 
 /**
  * Created by jliu on 2017/6/1.
  */
-public class AddDataSourceApplicationEvent extends RemoteApplicationEvent {
-    private String dataSource;
+public class AddDataSourceApplicationEvent extends EventObject {
 
-    public AddDataSourceApplicationEvent() {
-    }
 
-    public AddDataSourceApplicationEvent(Object source, String originService, String destinationService, String dataSource) {
-        super(source, originService, destinationService);
-        this.dataSource = dataSource;
+    public AddDataSourceApplicationEvent(Object source) {
+        super(source);
     }
 
     public String getDataSource() {
-        return dataSource;
+        return source.toString();
     }
 }

@@ -5,7 +5,8 @@ import com.guns21.cloud.gateway.service.AuthService;
 import com.guns21.session.domain.AuthInfo;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
  */
 public class AuthFilter extends ZuulFilter {
 
-    private final Logger logger = Logger.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
     private AuthService authService;
 
     /**
