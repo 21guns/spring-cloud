@@ -1,4 +1,4 @@
-package com.guns21.event.domain;
+package com.guns21.cloud.event.domain;
 
 /**
  * 点对点事件

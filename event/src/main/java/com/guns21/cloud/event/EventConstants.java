@@ -1,4 +1,4 @@
-package com.guns21.event;
+package com.guns21.cloud.event;
 
 /**
  * Created by jliu on 2017/6/6.

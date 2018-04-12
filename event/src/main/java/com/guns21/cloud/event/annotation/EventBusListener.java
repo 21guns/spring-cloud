@@ -1,6 +1,6 @@
-package com.guns21.event.annotation;
+package com.guns21.cloud.event.annotation;
 
-import com.guns21.event.EventBusClient;
+import com.guns21.cloud.event.EventBusClient;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.core.annotation.AliasFor;
 

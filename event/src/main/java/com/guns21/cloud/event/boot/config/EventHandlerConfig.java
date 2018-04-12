@@ -1,4 +1,4 @@
-package com.guns21.event.boot.config;
+package com.guns21.cloud.event.boot.config;
 
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.binding.StreamListenerAnnotationBeanPostProcessor;

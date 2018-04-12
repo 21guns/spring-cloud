@@ -1,6 +1,6 @@
-package com.guns21.event.boot.config;
+package com.guns21.cloud.event.boot.config;
 
-import com.guns21.event.EventBus;
+import com.guns21.cloud.event.EventBus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
