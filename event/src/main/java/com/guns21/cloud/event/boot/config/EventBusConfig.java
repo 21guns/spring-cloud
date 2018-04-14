@@ -1,6 +1,6 @@
 package com.guns21.cloud.event.boot.config;
 
-import com.guns21.cloud.event.EventBus;
+import com.guns21.cloud.event.StreamEventBus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,13 +12,8 @@ import org.springframework.context.annotation.Configuration;
 public class EventBusConfig {
 
     @Bean
-    public EventBus eventBus() {
-        return new EventBus();
+    public StreamEventBus eventBus() {
+        return new StreamEventBus();
     }
 
-    //异步执行事件配置
-//    @Bean
-//    TaskExecutor taskExecutor() {
-//        return new SimpleAsyncTaskExecutor();
-//    }
 }

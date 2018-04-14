@@ -1,6 +1,6 @@
 package com.guns21.cloud.event;
 
-import com.guns21.cloud.event.domain.BaseEvent;
+import com.guns21.event.domain.BaseEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

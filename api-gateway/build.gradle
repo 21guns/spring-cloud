@@ -1,6 +1,9 @@
 //apply from: 'http://git.oschina.net/21hulk/gradle/raw/master/spring-boot.gradle'
 apply from: '/Volumes/data/Develop/workspace/21guns/gradle/spring-boot.gradle'
 
+version '1.0.0'
+group 'com.guns21.cloud'
+
 dependencies {
     compile 'com.guns21:spring-session:1.0.0'
     compile project(':limiting')
