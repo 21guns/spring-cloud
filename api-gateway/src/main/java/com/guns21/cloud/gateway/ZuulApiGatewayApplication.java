@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Bean;
  *
  * @author eacdy
  */
-@EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages = {"com.ktjr.**"})
+//@EnableDiscoveryClient
+@SpringBootApplication(scanBasePackages = {"com.guns21"})
 @EnableZuulProxy
 public class ZuulApiGatewayApplication {
     public static void main(String[] args) {

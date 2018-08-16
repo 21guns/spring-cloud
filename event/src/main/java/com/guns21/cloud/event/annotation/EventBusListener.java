@@ -20,10 +20,10 @@ import java.lang.annotation.Target;
 @Inherited
 @Documented
 public @interface EventBusListener {
-    @AliasFor(annotation = StreamListener.class, attribute = "target")
-    String value() default EventBusClient.INPUT;
+    @AliasFor(annotation = StreamListener.class, attribute = "condition")
+    String value()  default "";
 
-    @AliasFor(annotation = StreamListener.class, attribute = "value")
+    @AliasFor(annotation = StreamListener.class, attribute = "target")
     String target() default EventBusClient.INPUT;
 
     @AliasFor(annotation = StreamListener.class, attribute = "condition")
