@@ -5,4 +5,6 @@ package com.guns21.cloud.event;
  */
 public class EventConstants {
     public static final String EVENT_TOPIC__SUFFIX = "-event";
+
+    public static final String EVENT_ROTUE_KEY = "-event";
 }
