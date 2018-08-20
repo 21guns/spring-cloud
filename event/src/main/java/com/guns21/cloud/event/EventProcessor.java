@@ -49,7 +49,7 @@ public class EventProcessor implements ApplicationEventPublisherAware {
 
     public boolean sendMessage(BaseEvent message) {
 
-        return busClient.eventBusOutput().send(MessageBuilder.withPayload(message)
+        return busClient.eventOutput().send(MessageBuilder.withPayload(message)
                 .setHeader(EVENT_TYPE, message.getEventType())
                 .build());
     }
