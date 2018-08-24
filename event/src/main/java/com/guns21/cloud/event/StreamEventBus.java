@@ -23,7 +23,7 @@ public class StreamEventBus implements EventBus {
     public void publish(NotifyEvent event) {
         logger.debug("publish event for {}", event);
 //        eventProcessor.sendMessage(event,event.getClass().getSimpleName());//每一个事件一个topic
-//        eventProcessor.sendMessage(event,appName + EventConstants.EVENT_TOPIC__SUFFIX);//每一个服务一个topic
+//        eventProcessor.sendMessage(event,appName + CloudEventConstants.EVENT_TOPIC__SUFFIX);//每一个服务一个topic
         eventProcessor.sendMessage(event);
     }
 
