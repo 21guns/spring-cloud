@@ -1,6 +1,5 @@
 package com.guns21.cloud.event.annotation;
 
-import com.guns21.cloud.event.EventBusClient;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.core.annotation.AliasFor;
 
@@ -20,12 +19,15 @@ import java.lang.annotation.Target;
 @Inherited
 @Documented
 public @interface EventBusListener {
-    @AliasFor(annotation = StreamListener.class, attribute = "condition")
+    @AliasFor(annotation = StreamListener.class, attribute = "value")
     String value()  default "";
 
     @AliasFor(annotation = StreamListener.class, attribute = "target")
-    String target() default EventBusClient.INPUT;
+    String target() default "";
 
     @AliasFor(annotation = StreamListener.class, attribute = "condition")
-    String eventType() default "";
+    String condition() default "";
+
+    @AliasFor(annotation = StreamListener.class, attribute = "copyHeaders")
+    String copyHeaders() default "true";
 }
