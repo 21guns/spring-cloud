@@ -38,7 +38,7 @@ public class EventProcessor implements ApplicationEventPublisherAware {
      */
     public boolean sendMessage(BaseEvent message, String destination) {
 
-        logger.debug("send message to kafka topic: {}, message: {}", destination, message);
+        logger.debug("send message to  {}, message: {}", destination, message);
 
         MessageChannel messageChannel = binderAwareChannelResolver.resolveDestination(destination);
         return messageChannel.send(MessageBuilder.withPayload(message)
