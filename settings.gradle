@@ -4,4 +4,5 @@ include 'event'
 include 'api-gateway'
 include 'limiting'
 include 'eureka'
+include 'stream'
 
