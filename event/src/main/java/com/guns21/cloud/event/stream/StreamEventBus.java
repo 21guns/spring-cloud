@@ -1,4 +1,4 @@
-package com.guns21.cloud.event;
+package com.guns21.cloud.event.stream;
 
 import com.guns21.event.EventBus;
 import com.guns21.event.domain.AskEvent;

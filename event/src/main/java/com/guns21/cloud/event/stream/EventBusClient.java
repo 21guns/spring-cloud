@@ -1,4 +1,4 @@
-package com.guns21.cloud.event;
+package com.guns21.cloud.event.stream;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;

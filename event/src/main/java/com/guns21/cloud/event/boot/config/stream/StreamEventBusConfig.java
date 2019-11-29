@@ -1,13 +1,12 @@
-package com.guns21.cloud.event.boot.config;
+package com.guns21.cloud.event.boot.config.stream;
 
-import com.guns21.cloud.event.StreamEventBus;
+import com.guns21.cloud.event.stream.StreamEventBus;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * Created by jliu on 2017/6/6.
  */
-@Configuration
+//@Configuration
 //@EnableAsync
 public class StreamEventBusConfig {
 

@@ -1,4 +1,4 @@
-package com.guns21.cloud.event.boot.config;
+package com.guns21.cloud.event.boot.config.stream;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

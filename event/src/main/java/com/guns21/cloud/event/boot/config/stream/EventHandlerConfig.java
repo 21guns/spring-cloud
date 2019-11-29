@@ -1,4 +1,4 @@
-package com.guns21.cloud.event.boot.config;
+package com.guns21.cloud.event.boot.config.stream;
 
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.binding.StreamListenerAnnotationBeanPostProcessor;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static org.springframework.cloud.stream.config.BindingServiceConfiguration.STREAM_LISTENER_ANNOTATION_BEAN_POST_PROCESSOR_NAME;
 
-@Configuration
+//@Configuration
 public class EventHandlerConfig {
  
     /*

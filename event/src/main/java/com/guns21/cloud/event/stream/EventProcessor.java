@@ -1,4 +1,4 @@
-package com.guns21.cloud.event;
+package com.guns21.cloud.event.stream;
 
 import com.guns21.event.domain.BaseEvent;
 import org.slf4j.Logger;
@@ -11,6 +11,8 @@ import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 
+import static com.guns21.cloud.event.EventConstant.EVENT_TYPE;
+
 /**
  * Created by jliu on 2017/6/5.
  */
@@ -18,7 +20,6 @@ import org.springframework.messaging.support.MessageBuilder;
 public class EventProcessor implements ApplicationEventPublisherAware {
     private static final Logger logger = LoggerFactory.getLogger(EventProcessor.class);
 
-    public static final String EVENT_TYPE = "eventType";
 
     @Autowired
     private BinderAwareChannelResolver binderAwareChannelResolver;
