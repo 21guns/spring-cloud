@@ -5,7 +5,7 @@ apply from: 'https://raw.githubusercontent.com/21guns/java-gradle/2.2.x/spring-b
 //apply from: '/Volumes/data/Develop/workspace/21guns/gradle/spring-boot.gradle'
 
 dependencies {
-    compile 'com.guns21:multi-tenants:1.0.0'
+    compile 'com.guns21:multi-tenants:2.0.0'
     compile "org.springframework.boot:spring-boot-actuator"
     compile "org.springframework.cloud:spring-cloud-starter-bus-kafka"
 
