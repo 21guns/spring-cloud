@@ -16,4 +16,9 @@ public final class EventWraper {
                 .setHeader(EVENT_TYPE, event.getEventType())
                 .build();
     }
+
+    public static  MessageBuilder messageBuilder(BaseEvent event) {
+        return MessageBuilder.withPayload(event)
+                .setHeader(EVENT_TYPE, event.getEventType());
+    }
 }
