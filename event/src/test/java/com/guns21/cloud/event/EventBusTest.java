@@ -1,6 +1,7 @@
 package com.guns21.cloud.event;
 
-import com.guns21.event.boot.config.EventBusConfig;
+import com.guns21.cloud.event.boot.config.spring.EventBusConfig;
+import com.guns21.event.EventBus;
 import com.guns21.event.domain.NotifyEvent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
