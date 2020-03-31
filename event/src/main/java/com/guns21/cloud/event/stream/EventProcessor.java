@@ -16,7 +16,7 @@ import static com.guns21.cloud.event.EventConstant.EVENT_TYPE;
 /**
  * Created by jliu on 2017/6/5.
  */
-@EnableBinding(EventBusClient.class)
+//@EnableBinding(EventBusClient.class)
 public class EventProcessor implements ApplicationEventPublisherAware {
     private static final Logger logger = LoggerFactory.getLogger(EventProcessor.class);
 
