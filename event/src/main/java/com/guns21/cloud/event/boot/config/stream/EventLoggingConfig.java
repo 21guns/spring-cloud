@@ -5,6 +5,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.config.GlobalChannelInterceptor;
@@ -18,6 +19,7 @@ public class EventLoggingConfig {
 
     @Aspect
     @Configuration
+    @ConditionalOnProperty(name="com.guns21.cloud.event.logging", matchIfMissing= true, havingValue="true")
     public class EventInputLogging {
         private Logger logger = LoggerFactory.getLogger("Event Log Consuming");
 
@@ -27,13 +29,18 @@ public class EventLoggingConfig {
         }
     }
 
+    @ConditionalOnProperty(name="com.guns21.cloud.event.logging",matchIfMissing= true, havingValue="true")
     @Bean
-    @GlobalChannelInterceptor(patterns = "*-output-event", order = -1)
+    @GlobalChannelInterceptor( patterns = "${com.guns21.cloud.event.output.patterns:*}", order = -1)
     public ChannelInterceptor eventOutputLogging() {
         ChannelInterceptor eventOutputLogging = new ChannelInterceptor() {
             private Logger logger = LoggerFactory.getLogger("Event Log Producing");
             @Override
             public Message<?> preSend(Message<?> message, MessageChannel channel) {
+                if (message.getPayload() instanceof byte[]) {
+                    // if payload is byte[] don't log
+                    return message;
+                }
                 logger.info("on channel [{}] send message: {} ",channel.toString(), message.getPayload());
                 //just add valid
                 /*BindException bindException = new BindException(updateEvent, "updateEvent");
