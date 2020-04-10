@@ -1,5 +1,6 @@
 package com.guns21.cloud.event.boot.config.stream;
 
+import com.guns21.cloud.event.stream.EventLogging;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -21,11 +22,11 @@ public class EventLoggingConfig {
     @Configuration
     @ConditionalOnProperty(name="com.guns21.cloud.event.logging", matchIfMissing= true, havingValue="true")
     public class EventInputLogging {
-        private Logger logger = LoggerFactory.getLogger("Event Log Consuming");
+        private Logger logger = LoggerFactory.getLogger(EventLogging.class);
 
         @Before("@annotation(org.springframework.cloud.stream.annotation.StreamListener)")
         public void consumer(JoinPoint joinPoint){
-            logger.info("consumer [{}] receive message: {} ", joinPoint.getTarget().getClass().getSimpleName(), joinPoint.getArgs());
+            logger.debug("consumer [{}] receive message: {} ", joinPoint.getTarget().getClass().getSimpleName(), joinPoint.getArgs());
         }
     }
 
@@ -34,14 +35,14 @@ public class EventLoggingConfig {
     @GlobalChannelInterceptor( patterns = "${com.guns21.cloud.event.output.patterns:*}", order = -1)
     public ChannelInterceptor eventOutputLogging() {
         ChannelInterceptor eventOutputLogging = new ChannelInterceptor() {
-            private Logger logger = LoggerFactory.getLogger("Event Log Producing");
+            private Logger logger = LoggerFactory.getLogger(EventLogging.class);
             @Override
             public Message<?> preSend(Message<?> message, MessageChannel channel) {
                 if (message.getPayload() instanceof byte[]) {
                     // if payload is byte[] don't log
                     return message;
                 }
-                logger.info("on channel [{}] send message: {} ",channel.toString(), message.getPayload());
+                logger.debug("producer [{}] send message: {} ",channel.toString(), message.getPayload());
                 //just add valid
                 /*BindException bindException = new BindException(updateEvent, "updateEvent");
                 ValidationUtils.invokeValidator(validator, updateEvent.getSource(),bindException );*/
