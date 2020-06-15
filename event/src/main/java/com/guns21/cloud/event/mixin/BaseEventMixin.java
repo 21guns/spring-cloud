@@ -17,6 +17,4 @@ public interface BaseEventMixin {
 //        @JsonTypeInfo(use = JsonTypeInfo.Id.CLASS, include = JsonTypeInfo.As.PROPERTY) //都可以起作用,使用一个就行
         Object getSource();
 
-        @JsonIgnore
-        Optional getValue();
 }
